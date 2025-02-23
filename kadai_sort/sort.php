@@ -3,33 +3,30 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PHPマニュアルを参照してソート関数を実装してみよう</title>
 </head>
 
 <body>
   <p>
-
-  </p>
-  <p>
     <?php
     $numbers = [15, 4, 18, 23, 10];
-    $message = '';
 
     function sort_2way($array, $order)
     {
+      $numbers_copy = $array;
+      $message = '';
       if ($order === true) {
-        sort($array);
+        sort($numbers_copy);
         $message = '昇順でソートします';
       } else {
-        rsort($array);
+        rsort($numbers_copy);
         $message = '降順でソートします';
       }
 
       echo "{$message}<br>";
 
-      foreach ($array as $num) {
-        echo "{$num}<br>";
+      foreach ($numbers_copy as $number) {
+        echo "{$number}<br>";
       }
     }
 
